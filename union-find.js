@@ -21,14 +21,4 @@ class UnionFind {
   }
 }
 
-const uf = new UnionFind();
-
-uf.union("A", "B");
-uf.union("B", "C");
-uf.union("D", "E");
-
-console.log(uf.find("A")); // 'C'
-console.log(uf.find("B")); // 'C'
-console.log(uf.find("C")); // 'C'
-console.log(uf.find("D")); // 'E'
-console.log(uf.find("E")); // 'E'
+module.exports = UnionFind;
