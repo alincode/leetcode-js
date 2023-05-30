@@ -11,9 +11,7 @@ var accountsMerge = function (accounts) {
     const [name, ...emails] = account;
     for (const email of emails) {
       emailToName.set(email, name);
-      if (!emailToEmail.has(email)) {
-        emailToEmail.set(email, email);
-      }
+      if (!emailToEmail.has(email)) emailToEmail.set(email, email);
     }
   }
 
@@ -33,11 +31,9 @@ var accountsMerge = function (accounts) {
 
   // Step 4: Build merged accounts
   const mergedAccounts = new Map();
-  for (const [email, representativeEmail] of emailToEmail) {
+  for (const [email, _] of emailToEmail) {
     const parent = uf.find(email);
-    if (!mergedAccounts.has(parent)) {
-      mergedAccounts.set(parent, []);
-    }
+    if (!mergedAccounts.has(parent)) mergedAccounts.set(parent, []);
     mergedAccounts.get(parent).push(email);
   }
 
