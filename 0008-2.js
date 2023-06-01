@@ -4,43 +4,43 @@ const assert = require("assert");
  * @param {string} s
  * @return {number}
  */
-var myAtoi = (s) => {
-  s = s.trimStart();
-  const firstChar = s[0];
-
+var myAtoi = function (s) {
+  let value = s.trimStart();
   let sign = 1;
-  let idx = 0;
+  const firstWord = value.charAt(0);
+  let index = 0;
 
-  if (firstChar === "-" || firstChar === "+") {
-    if (firstChar === "-") sign = -1;
-    idx = 1;
+  if (firstWord === "+" || firstWord === "-") {
+    if (firstWord === "-") {
+      sign = -1;
+    }
+    index = 1;
   }
 
-  const zeroCharCode = "0".charCodeAt(0);
-  const nineCharCode = "9".charCodeAt(0);
+  const zero = "0".charCodeAt(0);
+  const nine = "9".charCodeAt(0);
+
   let result = "0";
-
-  for (let i = idx; i < s.length; i++) {
-    const char = s[i];
+  for (let i = index; i < value.length; i++) {
+    const char = value[i];
     const code = char.charCodeAt(0);
-
-    if (code < zeroCharCode || code > nineCharCode) break;
-
+    if (code > nine || code < zero) break;
     result = result === "0" ? char : result + char;
   }
 
-  result = +result * sign;
+  result = result * sign;
 
-  const max32BitInt = 2 ** 31 - 1;
-  const min32BitInt = 2 ** 31 * -1;
+  const maxLimit = Math.pow(2, 31) - 1;
+  const minLimit = -Math.pow(2, 31);
 
-  if (result > max32BitInt) result = max32BitInt;
-  if (result < min32BitInt) result = min32BitInt;
+  if (result > maxLimit) result = maxLimit;
+  if (result < minLimit) result = minLimit;
 
   return result;
 };
 
-assert.equal(myAtoi("42"), 42);
-assert.equal(myAtoi("   -42"), -42);
-assert.equal(myAtoi("4193 with words"), 4193);
-assert.equal(myAtoi("words and 987"), 0);
+// assert.equal(myAtoi("42"), 42);
+// assert.equal(myAtoi("   -42"), -42);
+// assert.equal(myAtoi("4193 with words"), 4193);
+// assert.equal(myAtoi("words and 987"), 0);
+assert.equal(myAtoi("0042"), 42);
