@@ -33,5 +33,7 @@ var rightSideView = function (root) {
   return result;
 };
 
+// BFS
+
 // 這個解法的時間複雜度為 O(N)，其中 N 是二叉樹的節點數量。
 // 空間複雜度為 O(M)，其中 M 是二叉樹的最大層級數量
