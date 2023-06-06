@@ -10,19 +10,19 @@ var subsets = function (nums) {
   const subsetCount = Math.pow(2, n);
 
   for (let i = 0; i < subsetCount; i++) {
-    const currSubset = [];
+    const subset = [];
     for (let j = 0; j < n; j++) {
-      // Bit Manipulation
-      if ((i >> j) & 1) {
-        currSubset.push(nums[j]);
-      }
+      if ((i >> j) & 1) subset.push(nums[j]);
     }
-    result.push(currSubset);
+    result.push(subset);
   }
 
   return result;
 };
 
+// Bit Manipulation
+
+// 24 times
 assert.deepEqual(subsets([1, 2, 3]), [
   [],
   [1],
@@ -34,4 +34,4 @@ assert.deepEqual(subsets([1, 2, 3]), [
   [1, 2, 3],
 ]);
 
-assert.deepEqual(subsets([0]), [[], [0]]);
+// assert.deepEqual(subsets([0]), [[], [0]]);

@@ -9,6 +9,8 @@ var subsets = function (nums) {
   let subsets = [];
 
   function dfs(i) {
+    console.count("===");
+    console.log(`dfs([${subsets}], ${i})`);
     if (i >= nums.length) {
       result.push(subsets.slice());
       return;
@@ -27,6 +29,7 @@ var subsets = function (nums) {
   return result;
 };
 
+// 15 times
 assert.deepEqual(subsets([1, 2, 3]), [
   [1, 2, 3],
   [1, 2],
@@ -38,4 +41,4 @@ assert.deepEqual(subsets([1, 2, 3]), [
   [],
 ]);
 
-assert.deepEqual(subsets([0]), [[0], []]);
+// assert.deepEqual(subsets([0]), [[0], []]);

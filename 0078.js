@@ -8,6 +8,8 @@ var subsets = function (nums) {
   const result = [];
 
   function backtrack(currSubset, start) {
+    console.count("===");
+    console.log(`backtrack([${currSubset}], ${start})`);
     result.push(currSubset.slice()); // 將當前子集加入結果列表
 
     for (let i = start; i < nums.length; i++) {
@@ -21,6 +23,7 @@ var subsets = function (nums) {
   return result;
 };
 
+// 8 times
 assert.deepEqual(subsets([1, 2, 3]), [
   [],
   [1],
@@ -32,4 +35,4 @@ assert.deepEqual(subsets([1, 2, 3]), [
   [3],
 ]);
 
-assert.deepEqual(subsets([0]), [[], [0]]);
+// assert.deepEqual(subsets([0]), [[], [0]]);
