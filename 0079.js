@@ -23,9 +23,7 @@ var exist = function (board, word) {
     }
 
     // 已經找到了完整的單詞
-    if (index === word.length - 1) {
-      return true;
-    }
+    if (index === word.length - 1) return true;
 
     // 標記當前位置已訪問
     visited[row][col] = true;
@@ -46,14 +44,15 @@ var exist = function (board, word) {
   // 遍歷矩陣的每個位置，進行搜索
   for (let i = 0; i < m; i++) {
     for (let j = 0; j < n; j++) {
-      if (dfs(i, j, 0)) {
-        return true;
-      }
+      if (dfs(i, j, 0)) return true;
     }
   }
 
   return false;
 };
+
+// 時間複雜度是 O(m * n * 4^k)
+// 空間複雜度為 O(m * n + k)
 
 assert.equal(
   exist(
