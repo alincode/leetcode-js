@@ -16,9 +16,7 @@ var findAnagrams = function (s, p) {
       .sort()
       .join(""); // 將s中的子字串排序
 
-    if (subStringSorted === pSorted) {
-      result.push(i); // 添加起始索引到結果中
-    }
+    if (subStringSorted === pSorted) result.push(i);
   }
 
   return result;

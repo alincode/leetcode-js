@@ -8,12 +8,10 @@ const assert = require("assert");
 var findAnagrams = function (s, p) {
   const pCount = new Array(26).fill(0); // p字串的字母計數器
   const result = [];
+  const firstCharCode = "a".charCodeAt();
 
   // 初始化p字串的字母計數器
-  for (let i = 0; i < p.length; i++) {
-    const charCode = p.charCodeAt(i) - 97;
-    pCount[charCode]++;
-  }
+  for (let c of p) pCount[c.charCodeAt() - firstCharCode]++;
 
   let left = 0; // 窗口左邊界索引
   let right = 0; // 窗口右邊界索引
@@ -21,7 +19,7 @@ var findAnagrams = function (s, p) {
 
   // 滑動窗口
   while (right < s.length) {
-    const charCode = s.charCodeAt(right) - 97;
+    const charCode = s.charCodeAt(right) - firstCharCode;
 
     // 窗口右邊界字母計數減一
     pCount[charCode]--;
@@ -31,7 +29,7 @@ var findAnagrams = function (s, p) {
 
     // 窗口大小超過p長度，移動左邊界
     if (right - left + 1 > p.length) {
-      const leftCharCode = s.charCodeAt(left) - 97;
+      const leftCharCode = s.charCodeAt(left) - firstCharCode;
 
       // 窗口左邊界字母計數加一
       pCount[leftCharCode]++;
