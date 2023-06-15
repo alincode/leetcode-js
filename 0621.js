@@ -20,11 +20,10 @@ const leastInterval = function (tasks, n) {
     }
   }
 
-  // 計算至少需要的冷卻時間
-  const cooldownTime = (maxVal - 1) * (n + 1);
+  const minTime = (maxVal - 1) * (n + 1);
 
-  // 最終結果是冷卻時間加上剩餘的任務數量，可能超過 tasks 的長度
-  return Math.max(cooldownTime + maxCount, tasks.length);
+  // 最終結果是 minTime 加上剩餘的任務數量，可能超過 tasks 的長度
+  return Math.max(minTime + maxCount, tasks.length);
 };
 
 // 時間複雜度為 O(N)，其中 N 是 `tasks` 陣列的長度，因為需要遍歷 `tasks` 陣列和哈希表。
