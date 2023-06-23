@@ -8,9 +8,7 @@ var missingNumber = function (nums) {
   nums.sort((a, b) => a - b);
   const n = nums.length;
   for (let i = 0; i <= n; i++) {
-    if (i !== nums[i]) {
-      return i;
-    }
+    if (i !== nums[i]) return i;
   }
   return -1; // 如果缺失的數字超出了範圍，返回 -1 或其他適當的值
 };
