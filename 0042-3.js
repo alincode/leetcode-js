@@ -1,5 +1,6 @@
 const assert = require("assert");
 
+// Monotonic Stack
 var trap = function (height) {
   let water = 0; // 雨水量
   let stack = []; // 單調遞減棧，存儲柱子的索引
@@ -18,6 +19,9 @@ var trap = function (height) {
 
   return water;
 };
+
+// 時間複雜度為 O(N)，其中 N 是柱子的數量。
+// 空間複雜度為 O(N)，用於存儲棧的元素。
 
 assert.equal(trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]), 6);
 assert.equal(trap([4, 2, 0, 3, 2, 5]), 9);

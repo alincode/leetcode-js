@@ -1,5 +1,6 @@
 const assert = require("assert");
 
+// DP
 var trap = function (height) {
   if (height.length === 0) return 0;
 
@@ -28,6 +29,9 @@ var trap = function (height) {
 
   return water;
 };
+
+// 時間複雜度為 O(N)，其中 N 是柱子的數量。
+// 空間複雜度為 O(N)，用於存儲左邊最大高度和右邊最大高度的陣列。
 
 assert.equal(trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]), 6);
 assert.equal(trap([4, 2, 0, 3, 2, 5]), 9);
