@@ -1,6 +1,7 @@
 const assert = require("assert");
 
 var ladderLength = function (beginWord, endWord, wordList) {
+  if (!wordList.includes(endWord)) return 0;
   // Step 1: 將 beginWord 加入 wordList
   wordList.push(beginWord);
 
@@ -18,9 +19,10 @@ var ladderLength = function (beginWord, endWord, wordList) {
       for (let j = 97; j <= 122; j++) {
         const newWord =
           word.slice(0, i) + String.fromCharCode(j) + word.slice(i + 1);
+        if (newWord === endWord) return step + 1; // 找到 endWord，返回步數
+
         // 如果 newWord 在 wordList 中且未被訪問過
         if (wordList.includes(newWord) && !visited.has(newWord)) {
-          if (newWord === endWord) return step + 1; // 找到 endWord，返回步數
           queue.push([newWord, step + 1]); // 將 newWord 加入佇列
           visited.add(newWord); // 標記 newWord 為已訪問
         }
