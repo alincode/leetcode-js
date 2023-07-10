@@ -3,21 +3,22 @@ const assert = require("assert");
 var countSubstrings = function (s) {
   let count = 0;
 
-  // 擴展中心法
-  const expandAroundCenter = function (left, right) {
-    while (left >= 0 && right < s.length && s[left] === s[right]) {
-      count++;
-      left--;
-      right++;
-    }
-  };
-
   // 遍歷每個字符，作為回文串的中心或中心的左側
   for (let i = 0; i < s.length; i++) {
-    expandAroundCenter(i, i); // 單個字符作為中心
-    expandAroundCenter(i, i + 1); // 兩個相同字符作為中心
+    count += countPalindromic(s, i, i); // 單個字符作為中心
+    count += countPalindromic(s, i, i + 1); // 兩個相同字符作為中心
   }
 
+  return count;
+};
+
+const countPalindromic = function (s, left, right) {
+  let count = 0;
+  while (left >= 0 && right < s.length && s[left] === s[right]) {
+    count++;
+    left--;
+    right++;
+  }
   return count;
 };
 
