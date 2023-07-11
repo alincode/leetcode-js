@@ -29,6 +29,9 @@ var lengthOfLIS = function (nums) {
   return len;
 };
 
+// 時間複雜度為 O(nlogn)
+// 空間複雜度為 O(n)
+
 assert.equal(lengthOfLIS([10, 9, 2, 5, 3, 7, 101, 18]), 4);
 assert.equal(lengthOfLIS([0, 1, 0, 3, 2, 3]), 4);
 assert.equal(lengthOfLIS([7, 7, 7, 7, 7, 7, 7]), 1);
