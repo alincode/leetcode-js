@@ -23,6 +23,9 @@ var eraseOverlapIntervals = function (intervals) {
   return count;
 };
 
+// 時間複雜度為 O(nlogn)
+// 空間複雜度為 O(1)
+
 assert.equal(
   eraseOverlapIntervals([
     [1, 2],
