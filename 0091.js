@@ -26,4 +26,5 @@ var numDecodings = function (s) {
 
 assert.equal(numDecodings("12"), 2);
 assert.equal(numDecodings("226"), 3);
+assert.equal(numDecodings("126"), 3);
 assert.equal(numDecodings("06"), 0);
