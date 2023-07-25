@@ -56,6 +56,9 @@ var setZeroes = function (matrix) {
   return matrix;
 };
 
+// 時間複雜度：O(m * n)
+// 空間複雜度：O(1)
+
 assert.deepEqual(
   setZeroes([
     [1, 1, 1],
