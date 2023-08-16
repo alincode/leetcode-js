@@ -24,3 +24,4 @@ var maxProduct = function (nums) {
 
 assert.equal(maxProduct([2, 3, -2, 4]), 6);
 assert.equal(maxProduct([-2, 0, -1]), 0);
+assert.equal(maxProduct([-1, -2, -3]), 6);
