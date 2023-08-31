@@ -1,12 +1,5 @@
-# 224. Basic Calculator
+const assert = require("assert");
 
-<https://leetcode.com/problems/basic-calculator/>
-
-## Stack 解法
-
-這個問題可以使用棧（Stack）來實現，下面是一種可能的解法：
-
-```javascript
 var calculate = function (s) {
   const stack = [];
   let num = 0;
@@ -39,6 +32,7 @@ var calculate = function (s) {
 
   return res + sign * num;
 };
-```
 
-這個解法利用了棧來處理運算符和數字，並根據運算符的不同進行計算。括號部分則利用了棧來處理嵌套的計算。該解法的時間複雜度是 O(n)，其中 n 是輸入字符串的長度。
+assert.equal(calculate("1 + 1"), 2);
+assert.equal(calculate(" 2-1 + 2 "), 3);
+assert.equal(calculate("(1+(4+5+2)-3)+(6+8)"), 23);
